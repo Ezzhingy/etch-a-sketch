@@ -23,20 +23,34 @@ function createGrid(side) {
     }
 }
 
-function setColour(e) {
-    const grid = e.target;
+function mouseoverBlack() {
+    grids.forEach(grid => removeEventListener("mouseover", generateRainbow));
+    grids.forEach(grid => addEventListener("mouseover", generateBlack));
+}
 
+function mouseoverRainbow() {
+    grids.forEach(grid => removeEventListener("mouseover", generateBlack));
+    grids.forEach(grid => addEventListener("mouseover", generateRainbow));
+}
+
+function generateBlack(e) {
+    const grid = e.target;
     if (e.target.classList.value === "grid") {
         grid.classList.add('coloured');
-        generateColour(grid);
+        grid.style.backgroundColor = 'black';
     }
 }
 
-function generateColour(grid) {
-    do {
-        const randomColour = Math.floor(Math.random()*16777215).toString(16);
-        grid.style.backgroundColor = `#${randomColour}`;
-    } while (grid.style.backgroundColor === "");
+function generateRainbow(e) {
+    const grid = e.target;
+    if (e.target.classList.value === "grid") {
+        grid.classList.add('coloured');
+    
+        do {
+            const randomColour = Math.floor(Math.random()*16777215).toString(16);
+            grid.style.backgroundColor = `#${randomColour}`;
+        } while (grid.style.backgroundColor === "");
+    }
 }
 
 function changeGrid(e) {
@@ -56,10 +70,15 @@ createGrid(16);
 
 // implements hover feature
 const grids = document.querySelectorAll(".grid");
-grids.forEach(grid => addEventListener("mouseover", setColour))
+grids.forEach(grid => addEventListener("mouseover", generateBlack)); // set default colour to black
 
 // button for user to change grid size
 const btn = document.querySelector("#change-grid");
 btn.addEventListener('click', changeGrid);
 
+// buttons for user to change colour
+const blackBtn = document.querySelector("#black");
+const rainbowBtn = document.querySelector("#rainbow");
+blackBtn.addEventListener('click', mouseoverBlack);
+rainbowBtn.addEventListener('click', mouseoverRainbow);
 
