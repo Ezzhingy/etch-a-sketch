@@ -1,12 +1,13 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: lightgrey;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    width: 800px;
-    height: 800px;
+    width: 400px;
+    height: 400px;
 }
 
 .overall {
@@ -18,8 +19,32 @@ body {
     box-sizing: border-box;
     border: 0.5px solid black;
     height: 50px;
+    background-color: white;
 }
 
 .hori-box {
     flex: 1;
+}
+
+#title {
+    text-align: center;
+    font-size: 70px;
+    margin: 20px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.btn {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn:hover {
+    background-color: lightgrey;
 }

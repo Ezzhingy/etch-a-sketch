@@ -12,7 +12,7 @@ function createGrid(side) {
 
             // find grid height
             // height of container: 800px
-            const gridHeight = 800 / side;
+            const gridHeight = 400 / side;
             
             grid.style.height = `${gridHeight}px`;
 
@@ -36,13 +36,30 @@ function generateColour(grid) {
     do {
         const randomColour = Math.floor(Math.random()*16777215).toString(16);
         grid.style.backgroundColor = `#${randomColour}`;
-    } while (grid.style.backgroundColor === "")
+    } while (grid.style.backgroundColor === "");
+}
+
+function changeGrid(e) {
+    let gridSize;
+    do {
+        gridSize = prompt("Please enter a grid size (up to 100)", 16);
+    } while (gridSize > 100 || gridSize <= 0);
+
+    const container = document.querySelector(".container");
+    container.innerHTML = '';
+    createGrid(gridSize);
 }
 
 
+// creates basic 16x16 grid
 createGrid(16);
 
+// implements hover feature
 const grids = document.querySelectorAll(".grid");
 grids.forEach(grid => addEventListener("mouseover", setColour))
+
+// button for user to change grid size
+const btn = document.querySelector("#change-grid");
+btn.addEventListener('click', changeGrid);
 
 
