@@ -57,6 +57,7 @@ function changeGrid(e) {
     let gridSize;
     do {
         gridSize = prompt("Please enter a grid size (up to 100)", 16);
+
     } while (gridSize > 100 || gridSize <= 0);
 
     const container = document.querySelector(".container");

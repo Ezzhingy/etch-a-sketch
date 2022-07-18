@@ -1,6 +1,10 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: lightgrey;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -8,6 +12,7 @@ body {
     justify-content: center;
     width: 400px;
     height: 400px;
+    border: 10px inset grey;
 }
 
 .overall {
@@ -47,4 +52,19 @@ body {
 
 .btn:hover {
     background-color: lightgrey;
+}
+
+.footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: center; 
+}
+
+p {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
