@@ -58,7 +58,7 @@ function changeGrid(e) {
     do {
         gridSize = prompt("Please enter a grid size (up to 100)", 16);
 
-    } while (gridSize > 100 || gridSize <= 0);
+    } while (gridSize > 100 || gridSize <= 0 || isNaN(gridSize));
 
     const container = document.querySelector(".container");
     container.innerHTML = '';
